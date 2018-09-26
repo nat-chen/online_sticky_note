@@ -63,14 +63,6 @@ a {
   position: relative;
   height: calc(70%);
 }
-@-webkit-keyframes move-twink-back {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -10000px 5000px;
-  }
-}
 @keyframes move-twink-back {
   from {
     background-position: 0 0;
@@ -97,13 +89,11 @@ a {
 .twinkling {
   background: transparent url(http://7xpvnv.com2.z0.glb.qiniucdn.com/493b97e6-c499-4b41-a26b-8942873615b0.png) repeat top center;
   z-index: -1;
-  -webkit-animation: move-twink-back 200s linear infinite;
   animation: move-twink-back 200s linear infinite;
 }
 .toast {
   position: fixed;
   left: 50%;
-  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   bottom: 20px;
   color: #D15A39;
@@ -115,10 +105,9 @@ a {
 }
 .note {
   position: absolute;
-  color: #333;
+  color: #fff;
   width: 160px;
   margin: 20px 10px;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 .note .note-head {
@@ -128,7 +117,8 @@ a {
   font-size: 12px;
   line-height: 20px;
   padding-left: 10px;
-  color: #666;
+  color: #3d3838;
+  font-style: italic;
 }
 .note .note-head:hover .delete {
   opacity: 1;
@@ -166,16 +156,14 @@ a {
   position: absolute;
   top: 4px;
   right: 4px;
-  font-size: 12px;
+  font-size: 14px;
   color: #fff;
   cursor: pointer;
   opacity: 0;
-  -webkit-transition: opacity .3s;
   transition: opacity .3s;
 }
 .draggable {
   opacity: 0.8;
   cursor: move;
-  -webkit-transition: none;
   transition: none;
 }

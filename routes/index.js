@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
       isLogin: false
     }
   }
-  console.log(data)
+  console.dir(data)
   res.render('index', data);
 });
 
