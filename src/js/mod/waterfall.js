@@ -7,7 +7,7 @@ var WaterFall = (function(){
     $ct = $c;
     $items = $ct.children();
 
-    var nodeWidth = $items.outerWidth(true),
+    var nodeWidth = $items.outerWidth(true), //content/padding/border/margin 的宽度总和
       colNum = parseInt($(window).width()/nodeWidth),
       colSumHeight = [];
 

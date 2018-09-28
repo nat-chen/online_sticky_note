@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 //home page 
-//render different login page according to user session existence
+//render different login page depend on user session existence
 router.get('/', function(req, res, next) {
   var data;
   if(req.session.user){

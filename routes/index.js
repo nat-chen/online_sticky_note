@@ -14,8 +14,7 @@ router.get('/', function(req, res, next) {
       isLogin: false
     }
   }
-  console.dir(data)
-  res.render('index', data);
+  res.render('index', data); //使用视图模板 views/index.ejs （已在根目录下 app.js 设置）
 });
 
 module.exports = router;

@@ -26,7 +26,7 @@ Note.prototype = {
   },
 
   initOpts: function (opts) {
-    this.opts = $.extend({}, this.defaultOpts, opts||{});
+    this.opts = $.extend({}, this.defaultOpts, opts||{}); //与 Object.assign 相同
     if(this.opts.id){
        this.id = this.opts.id;
     }
@@ -37,7 +37,7 @@ Note.prototype = {
               + '<div class="note-head"><span class="username"></span><span class="delete">&times;</span></div>'
               + '<div class="note-ct" contenteditable="true"></div>'
               +'</div>';
-    this.$note = $(tpl);
+    this.$note = $(tpl); //获取对新创建元素的引用
     this.$note.find('.note-ct').text(this.opts.context);
     this.$note.find('.username').text(this.opts.username);
     this.opts.$ct.append(this.$note);
@@ -71,11 +71,11 @@ Note.prototype = {
       self.delete();
     })
 
-    //contenteditable没有 change 事件，所有这里做了模拟通过判断元素内容变动，执行 save
+    // contenteditable 没有 change 事件，所有这里做了模拟通过判断元素内容变动，执行 save
     $noteCt.on('focus', function() {
       if($noteCt.html()=='input here') $noteCt.html('');
-      $noteCt.data('before', $noteCt.html());
-    }).on('blur paste', function() {
+      $noteCt.data('before', $noteCt.html()); //在匹配元素上存储任意相关数据 或 返回匹配的元素集合中的第一个元素的给定名称的数据存储的值。
+    }).on('blur paste', function() { //多重事件绑定
       if( $noteCt.data('before') != $noteCt.html() ) {
         $noteCt.data('before',$noteCt.html());
         self.setLayout();
@@ -93,7 +93,7 @@ Note.prototype = {
           evtY = e.pageY - $note.offset().top;
       $note.addClass('draggable').data('evtPos', {x:evtX, y:evtY}); //把事件到 dialog 边缘的距离保存下来
     }).on('mouseup', function(){
-       $note.removeClass('draggable').removeData('pos');
+       $note.removeClass('draggable').removeData('pos'); //removeData 在元素上移除绑定的数据
     });
 
     $('body').on('mousemove', function(e){
